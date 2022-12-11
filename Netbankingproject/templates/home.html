@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+   home
+{% endblock %}
+{% block body %}
+
+    <div class="text-center my_title">
+        <p>Welcome to Your Bank PVT LTD.</p>
+    </div>
+
+<div width="1000" height="500">
+        <img class="my_image my_image_padding" src="{% static 'img/banner3.png' %}"  alt="Your Bank" width="500px" height="500px">
+</div>
+<br>
+<div class="my_bottom_margin">
+    <center>
+    <h1>Your Bank</h1>
+    </center>
+    <p>bank, an institution that deals in money and its substitutes and provides other money-related services. In its role as a financial intermediary, a bank accepts deposits and makes loans. <a href="credentials/login">Log on</a> to your account for more...</p>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="vh-100" style="background-color: white;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+<center>
+  <h2>Register</h2>
+<form action="register" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter username"><br>
+    <br>
+    <input type="password" name="password" placeholder="Enter password"><br>
+    <br>
+    <input type="password" name="password1" placeholder="confirm password"><br>
+    <br>
+    <button type="submit"  class="btn btn-success">Register</button>
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</center>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+{% endblock %}

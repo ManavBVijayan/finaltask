@@ -1,0 +1,51 @@
+.my_image_padding{
+    paddig:5px;
+}
+.my_footer{
+    background-color:red;
+    height:60px;
+}
+.my_footer p{
+    padding-top:20px;
+    font-size:14px;
+}
+.nav-item{
+    letter-spacing: .2em;
+    font-family: 'Peralta', cursive;
+    font-size:14px;
+    text-transform:uppercase;
+}
+.dropdown-item{
+    letter-spacing: .2em;
+    font-family: 'Peralta', cursive;
+    font-size:14px;
+    text-transform:uppercase;
+}
+.my_title{
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+}
+.my_bottom_margin{
+    margin-bottom :10px;
+    }
+.card{
+margin-bottom :20px;
+padding-top:20px;
+}
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.form-container .cancel {
+  background-color: red;
+}
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}

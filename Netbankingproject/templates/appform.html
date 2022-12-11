@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header>
+    <center>
+       <a href="{% url 'netbankingapp:index' %}"><img src="{% static 'img/logo1.png' %}" alt="logimage" width="120px" height="120px"> </a></div>
+    </center>
+</header>
+<center>
+<section>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-8 col-md-6 col-lg-6 col-xl-6">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+<h2><b>Application Form</b></h2><br>
+              <br>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="name"><b>Name</b></label>
+    <input  size="72" type="text" name="name" placeholder="Enter your name"><br>
+    <br>
+    <label for="dob"><b>Date Of Birth</b></label>
+    <input size="72" type="date" name="dob" placeholder="Enter your DOB">
+    <label for="age"><b>Age</b></label>
+    <input  size="72" type="number" name="age" placeholder="Enter your age"><br>
+    <br>
+    <label  for="gender"><b>Gender</b></label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female<br>
+    <br>
+    <label for="ph"><b>Phone Number</b></label>
+    <input size="72" type="number" name="ph" placeholder="Enter your phone number"><br>
+    <br>
+    <label for="email"><b>Email</b></label>
+    <input type="email" size="72" name="email" placeholder="Enter your email"><br>
+    <br>
+    <label for="adress"><b>Adress</b></label><br>
+    <input type="text" size="72" name="email" placeholder="Enter your adress"><br>
+    <br>
+
+    <label for="district"><b>District</b></label>
+    <select name="dept" id="department" class="form-control">
+    <option value="0">Select your disrict:</option>
+    <option value="1">Ernakulam</option>
+    <option value="2">Kozhikde</option>
+    <option value="3">Kannur</option>
+    <option value="4">Trivandrum</option>
+    <option value="5">Thrissur</option>>
+            {% for item in department  %}
+            <option value="{{ item.id }}">{{ item.departmentname }}</option>
+            {% endfor %}
+    </select>
+    <br>
+    <label for="branch"><b>Branch</b></label>
+        <select name="emp" id="Employee" class="form-control">
+            <option value="0">Select your branch</option>
+            <option value="1">Vypin</option>
+            <option value="1">kaloor</option>
+            <option value="1">Aluva</option>
+            <option value="2">Kozhikode</option>
+            <option value="2">Vadakara</option>
+            <option value="2">Koyilandy</option>
+            <option value="3">kannur</option>
+            <option value="3">Thalassery</option>
+            <option value="3">Payyannur</option>
+            <option value="4">Trivandrum</option>
+            <option value="4">East Fort</option>
+            <option value="4">Nemom</option>
+            <option value="5">Thrissur</option>
+            <option value="5">Chalakkudy</option>
+            <option value="5">Guruvayur</option>
+            {% for item in employe  %}
+            <option value="{{ item.deptid_id }}">{{ item.empname }}</option>
+            {% endfor %}
+        </select>
+    <br>
+   <label for="acc"><b>Account Type</b></label>
+        <select name="acc" id="acctype" class="form-control">
+            <option value="0">Select your account type</option>
+            <option value="1">Savings account</option>
+            <option value="2">Current account</option>
+            <option value="3">NRI account</option>
+        </select><br>
+    <label for="mat"><b>Materials Provided</b></label><br>
+    <input type="checkbox" id="credit" name="credit" value="0">
+    <label for="credit">Credit Card</label><br>
+    <input type="checkbox" id="Cheque" name="Cheque" value="1">
+    <label for="Cheque">Cheque Book</label><br>
+    <input type="checkbox" id="atm" name="atm" value="2">
+    <label for="atm">ATM Card</label><br>
+
+    <br>
+    <a href="{% url 'netbankingapp:final' %}"><button type="button" class="btn btn-success btn-lg btn-block"><b>Submit</b></button></a><br>
+    <a href="{% url 'netbankingapp:index' %}"><button type="button" class="btn btn-danger btn-lg btn-block"><b>Logout</b></button></a>
+    <br>
+    <br>
+
+</form>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+</center>
+<script>
+
+$(document).ready(function(){
+
+ var department = $("#department");
+ var Employee = $("#Employee");
+ var $options = Employee.find('option');
+ department.on('change',function(){
+    Employee.html($options.filter('[value="'+ this.value  +'"]'));
+ }).trigger('change');
+
+
+});
+</script>
+</body>
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="{% url 'netbankingapp:index' %}">&copy; Your Bank pvt ltd. All rights reserved.</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</html>
+

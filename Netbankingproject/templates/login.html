@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <form class="form-container" action="{% url 'credentials:login' %}" method="post" >
+            {% csrf_token %}
+            <h2>Login</h2>
+             <div class="form-outline mb-4">
+            <label for="username"><b>Username</b></label>
+            <input type="text" name="username" placeholder="Enter  your username" required><br>
+             </div>
+             <div class="form-outline mb-4">
+            <label for="password"><b>Password</b></label>
+            <input type="password" name="password" placeholder="Enter your password" required><br>
+             </div>
+            <center>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+
+            <a href="{% url 'netbankingapp:index' %}"><button type="button" class="btn btn-danger btn-lg btn-block">Close</button></a>
+            </center>
+                <hr class="my-4">
+            </form>
+           </div>
+            <center>
+    <div>
+        <p>If you are not registered yet, register <a href="{% url 'credentials:register' %}">here</a></p>
+    </div>
+                </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
